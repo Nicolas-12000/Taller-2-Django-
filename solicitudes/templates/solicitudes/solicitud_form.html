@@ -226,7 +226,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Limpiar validación al escribir
     document.querySelectorAll('input, select, textarea').forEach(function(field) {
         field.addEventListener('input', function() {
             this.classList.remove('is-invalid');
