@@ -122,6 +122,7 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <div class="form-check">
+                            {# Renderizar checkbox (la clase se provee desde el widget en el form) #}
                             {{ form.presente }}
                             <label class="form-check-label" for="{{ form.presente.id_for_label }}">
                                 <i class="bi bi-check-circle me-1"></i>
@@ -172,12 +173,15 @@
 {% endblock %}
 
 {% block extra_js %}
-<script>
-// Add classes to form fields for styling
+    <script>
+// Add classes to form fields for styling (skip checkboxes/radios/hidden so they keep Bootstrap styles)
 document.addEventListener('DOMContentLoaded', function() {
-    // Add form-control class to all input fields
+    // Add form-control class to suitable input fields
     const inputs = document.querySelectorAll('input, textarea, select');
     inputs.forEach(input => {
+        const t = (input.type || '').toLowerCase();
+        // Skip types that shouldn't receive the form-control class
+        if (['checkbox', 'radio', 'hidden', 'file'].includes(t)) return;
         if (!input.classList.contains('form-check-input')) {
             input.classList.add('form-control');
         }

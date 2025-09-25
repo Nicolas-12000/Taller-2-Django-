@@ -21,6 +21,7 @@ class AsistenciaForm(forms.ModelForm):
             'hora_ingreso': forms.TimeInput(attrs={'type': 'time'}),
             'hora_salida': forms.TimeInput(attrs={'type': 'time'}),
             'observaciones': forms.Textarea(attrs={'rows': 3}),
+            'presente': forms.CheckboxInput(attrs={'class': 'form-check-input'}),
         }
 
     def clean(self):
