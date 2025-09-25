@@ -10,10 +10,16 @@
                 <i class="fas fa-clipboard-list me-2"></i>
                 Lista de Solicitudes
             </h1>
-            <a href="{% url 'solicitud_create' %}" class="btn btn-primary">
-                <i class="fas fa-plus me-2"></i>
-                Nueva Solicitud
-            </a>
+            <div>
+                <a href="{% url 'asistencia:list' %}" class="btn btn-outline-primary me-2">
+                    <i class="fas fa-users me-2"></i>
+                    Ir a Asistencias
+                </a>
+                <a href="{% url 'solicitudes:solicitud_create' %}" class="btn btn-primary">
+                    <i class="fas fa-plus me-2"></i>
+                    Nueva Solicitud
+                </a>
+            </div>
         </div>
 
         <div class="card mb-4">
@@ -49,7 +55,7 @@
                             <button type="submit" class="btn btn-outline-primary">
                                 <i class="fas fa-search"></i> Buscar
                             </button>
-                            <a href="{% url 'solicitud_list' %}" class="btn btn-outline-secondary">
+                                <a href="{% url 'solicitudes:solicitud_list' %}" class="btn btn-outline-secondary">
                                 <i class="fas fa-times"></i> Limpiar
                             </a>
                         </div>
@@ -110,14 +116,14 @@
                                 </div>
 
                                 <div class="d-flex justify-content-between">
-                                    <a href="{% url 'solicitud_detail' solicitud.pk %}" class="btn btn-outline-primary btn-sm">
+                                        <a href="{% url 'solicitudes:solicitud_detail' solicitud.pk %}" class="btn btn-outline-primary btn-sm">
                                         <i class="fas fa-eye me-1"></i>Ver
                                     </a>
                                     <div>
-                                        <a href="{% url 'solicitud_update' solicitud.pk %}" class="btn btn-outline-warning btn-sm">
+                                            <a href="{% url 'solicitudes:solicitud_update' solicitud.pk %}" class="btn btn-outline-warning btn-sm">
                                             <i class="fas fa-edit me-1"></i>Editar
                                         </a>
-                                        <a href="{% url 'solicitud_delete' solicitud.pk %}" class="btn btn-outline-danger btn-sm ms-1"
+                                            <a href="{% url 'solicitudes:solicitud_delete' solicitud.pk %}" class="btn btn-outline-danger btn-sm ms-1"
                                            onclick="return confirm('¿Estás seguro de que deseas eliminar esta solicitud?')">
                                             <i class="fas fa-trash me-1"></i>Eliminar
                                         </a>
@@ -173,7 +179,7 @@
                 <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
                 <h3 class="text-muted">No hay solicitudes</h3>
                 <p class="text-muted">No se encontraron solicitudes que coincidan con los criterios de búsqueda.</p>
-                <a href="{% url 'solicitud_create' %}" class="btn btn-primary">
+                <a href="{% url 'solicitudes:solicitud_create' %}" class="btn btn-primary">
                     <i class="fas fa-plus me-2"></i>
                     Crear primera solicitud
                 </a>

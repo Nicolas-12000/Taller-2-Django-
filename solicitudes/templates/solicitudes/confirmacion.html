@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Solicitud Enviada - Sistema de Solicitudes{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-success text-white text-center">
+                    <h3><i class="fas fa-check-circle"></i> Solicitud Enviada Exitosamente</h3>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="fas fa-envelope-open-text" style="font-size: 4rem; color: #28a745;"></i>
+                    </div>
+                    
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    
+                    <h4 class="mb-3">¡Gracias por tu solicitud!</h4>
+                    <p class="lead mb-4">
+                        Tu solicitud ha sido recibida y procesada correctamente. 
+                        Recibirás una respuesta en el correo electrónico proporcionado.
+                    </p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6 mb-2">
+                            <a href="{% url 'solicitudes:solicitud_list' %}" class="btn btn-primary w-100">
+                                <i class="fas fa-list"></i> Ver Todas las Solicitudes
+                            </a>
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <a href="{% url 'solicitudes:solicitud_create' %}" class="btn btn-success w-100">
+                                <i class="fas fa-plus"></i> Nueva Solicitud
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-2">
+                        <div class="col-12">
+                            <a href="{% url 'asistencia:list' %}" class="btn btn-outline-info w-100">
+                                <i class="fas fa-users"></i> Ir a Asistencias
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <small class="text-muted">
+                            <i class="fas fa-info-circle"></i>
+                            Si tienes alguna pregunta, puedes contactarnos o crear una nueva solicitud.
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

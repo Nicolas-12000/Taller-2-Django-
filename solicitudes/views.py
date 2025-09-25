@@ -1,8 +1,34 @@
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import Solicitud
 from .forms import SolicitudForm
+
+
+class SolicitudListView(ListView):
+    model = Solicitud
+    template_name = 'solicitudes/solicitud_list.html'
+    context_object_name = 'solicitudes'
+    paginate_by = 20
+
+
+class SolicitudDetailView(DetailView):
+    model = Solicitud
+    template_name = 'solicitudes/solicitud_detail.html'
+    context_object_name = 'solicitud'
+
+
+class SolicitudUpdateView(UpdateView):
+    model = Solicitud
+    form_class = SolicitudForm
+    template_name = 'solicitudes/solicitud_form.html'
+    success_url = reverse_lazy('solicitudes:solicitud_list')
+
+
+class SolicitudDeleteView(DeleteView):
+    model = Solicitud
+    template_name = 'solicitudes/solicitud_confirm_delete.html'
+    success_url = reverse_lazy('solicitudes:solicitud_list')
 
 class SolicitudCreateView(CreateView):
     model = Solicitud
