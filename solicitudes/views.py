@@ -27,7 +27,7 @@ class SolicitudCreateView(CreateView):
     def form_invalid(self, form):
         messages.error(
             self.request,
-            'Por favor, corrija los errores en el formulario.'
+            'Por favor, corrija los errores e el formulario.'
         )
         return super().form_invalid(form)
 

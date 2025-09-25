@@ -73,7 +73,6 @@ class SolicitudForm(forms.ModelForm):
             if not documento.isdigit():
                 raise ValidationError('El documento debe contener solo números.')
             
-            # Validar longitud
             if len(documento) < 6 or len(documento) > 20:
                 raise ValidationError('El documento debe tener entre 6 y 20 dígitos.')
         

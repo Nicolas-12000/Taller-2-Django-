@@ -10,7 +10,6 @@ def validar_tamaño_archivo(value):
         raise ValidationError('El archivo no puede exceder 5MB.')
 
 def upload_to_solicitudes(instance, filename):
-    """Define la ruta donde se guardarán los archivos adjuntos"""
     return f'solicitudes/{instance.documento_identidad}/{filename}'
 
 class Solicitud(models.Model):
