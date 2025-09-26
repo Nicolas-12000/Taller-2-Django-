@@ -4,7 +4,7 @@ Proyecto Django para manejo de formularios de asistencia y solicitudes.
 
 ## Tecnologías
 - Django
-- PostgreSQL
+- Bootstrap
 - Python 3.x
 
 ## Instalación
